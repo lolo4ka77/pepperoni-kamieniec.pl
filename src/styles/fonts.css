@@ -1,0 +1,10 @@
+/* Fonts are loaded via <link> in index.html (preconnect + stylesheet)
+   instead of CSS @import, so the browser discovers them earlier. */
+
+:root {
+  --font-display: 'Fraunces', 'Times New Roman', serif;
+}
+
+* {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}

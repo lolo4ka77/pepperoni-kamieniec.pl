@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
+    <title>Pepperoni — Pizzeria Kamieniec Wrocławski | Włoska pizza i pierogi</title>
+    <meta
+      name="description"
+      content="Pizzeria Pepperoni w Kamieńcu Wrocławskim — prawdziwa włoska pizza z pieca, ręcznie lepione pierogi i dania obiadowe. Na miejscu i na wynos. Zadzwoń: 504 005 398. Codziennie 13:00–21:00."
+    />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://pepperoni-kamieniec.pl/" />
+    <meta name="theme-color" content="#fffbf5" />
+    <meta name="geo.region" content="PL-02" />
+    <meta name="geo.placename" content="Kamieniec Wrocławski" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="restaurant" />
+    <meta property="og:site_name" content="Pepperoni" />
+    <meta property="og:title" content="Pepperoni — Pizzeria Kamieniec Wrocławski" />
+    <meta
+      property="og:description"
+      content="Prawdziwa włoska pizza z pieca i ręcznie lepione pierogi. Na miejscu i na wynos — codziennie 13:00–21:00."
+    />
+    <meta property="og:url" content="https://pepperoni-kamieniec.pl/" />
+    <meta property="og:image" content="https://pepperoni-kamieniec.pl/og-image.jpg" />
+    <meta property="og:image:width" content="384" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="Pizza Prosciutto z rukolą i pomidorkami — Pizzeria Pepperoni" />
+    <meta property="og:locale" content="pl_PL" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pepperoni — Pizzeria Kamieniec Wrocławski" />
+    <meta
+      name="twitter:description"
+      content="Prawdziwa włoska pizza z pieca i ręcznie lepione pierogi. Codziennie 13:00–21:00."
+    />
+    <meta name="twitter:image" content="https://pepperoni-kamieniec.pl/og-image.jpg" />
+
+    <!-- Icons & manifest -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Fonts: preconnect + stylesheet (faster discovery than CSS @import) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..600&display=swap"
+    />
+
+    <style>html, body { height: 100%; margin: 0; } #root { height: 100%; }</style>
+
+    <!-- Structured data: Restaurant (Local Business) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "@id": "https://pepperoni-kamieniec.pl/#restaurant",
+      "name": "Pepperoni",
+      "alternateName": "Pizzeria Pepperoni Kamieniec Wrocławski",
+      "url": "https://pepperoni-kamieniec.pl/",
+      "logo": "https://pepperoni-kamieniec.pl/logo.png",
+      "image": "https://pepperoni-kamieniec.pl/og-image.jpg",
+      "telephone": "+48504005398",
+      "servesCuisine": ["Pizza", "Kuchnia włoska", "Kuchnia polska"],
+      "priceRange": "8–40 zł",
+      "currenciesAccepted": "PLN",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Wrocławska 13",
+        "addressLocality": "Kamieniec Wrocławski",
+        "postalCode": "55-002",
+        "addressRegion": "Województwo dolnośląskie",
+        "addressCountry": "PL"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "13:00",
+        "closes": "21:00"
+      },
+      "hasMenu": "https://pepperoni-kamieniec.pl/#menu"
+    }
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <h1>Pepperoni — Pizzeria w Kamieńcu Wrocławskim</h1>
+      <p>Włoska pizza, pierogi i dania obiadowe. Wrocławska 13, 55-002 Kamieniec Wrocławski. Tel. 504 005 398. Codziennie 13:00–21:00.</p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

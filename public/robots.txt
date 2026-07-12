@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pepperoni-kamieniec.pl/sitemap.xml
