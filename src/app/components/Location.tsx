@@ -1,7 +1,15 @@
 import { motion } from "motion/react";
 import { MapPin, Phone, Clock, ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { useConsent } from "../lib/useConsent";
 
 export function Location() {
+  // Mapa Google zapisuje cookies i wysyła IP do Google, więc ładujemy ją
+  // dopiero po zgodzie na cookies albo po świadomym kliknięciu użytkownika.
+  const consent = useConsent();
+  const [loadedOnDemand, setLoadedOnDemand] = useState(false);
+  const showMap = consent === "accepted" || loadedOnDemand;
+
   return (
     <section id="kontakt" className="py-24 bg-white scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -97,17 +105,54 @@ export function Location() {
             transition={{ duration: 0.8 }}
             className="relative h-[600px] rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#ff6b35] to-[#e63946]"
           >
-            <iframe
-              src="https://www.google.com/maps?q=Wroc%C5%82awska%2013%2C%2055-002%20Kamieniec%20Wroc%C5%82awski&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Pepperoni Pizza Location"
-            />
-            <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/20 to-transparent" />
+            {showMap ? (
+              <>
+                <iframe
+                  src="https://www.google.com/maps?q=Wroc%C5%82awska%2013%2C%2055-002%20Kamieniec%20Wroc%C5%82awski&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Mapa dojazdu — Pepperoni, Wrocławska 13, Kamieniec Wrocławski"
+                />
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/20 to-transparent" />
+              </>
+            ) : (
+              /* Zgoda niewyrażona → nie ładujemy Google Maps.
+                 Kafelek ma dokładnie te same wymiary, więc layout się nie przesuwa. */
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-8 bg-gradient-to-br from-[#fffbf5] to-[#ffe8d6]">
+                <div className="w-16 h-16 rounded-2xl bg-[#ff6b35]/10 flex items-center justify-center mb-5">
+                  <MapPin className="w-8 h-8 text-[#ff6b35]" aria-hidden="true" />
+                </div>
+                <h3 className="text-2xl font-bold text-[#2d2d2d] mb-2">
+                  Mapa Google
+                </h3>
+                <p className="text-[#6b6b6b] max-w-sm mb-6">
+                  Mapa ładuje się z serwerów Google, które mogą zapisać pliki
+                  cookies. Pokażemy ją dopiero za Twoją zgodą.
+                </p>
+                <div className="flex flex-wrap justify-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setLoadedOnDemand(true)}
+                    className="px-8 py-4 bg-[#ff6b35] text-white rounded-full font-semibold hover:bg-[#e63946] transition-colors shadow-lg hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff6b35] focus-visible:ring-offset-2"
+                  >
+                    Pokaż mapę
+                  </button>
+                  <a
+                    href="https://maps.google.com/?q=Wrocławska+13,+55-002+Kamieniec+Wrocławski"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-4 bg-white text-[#2d2d2d] rounded-full font-semibold border-2 border-[#ff6b35] hover:bg-[#f5f5f5] transition-colors shadow-lg hover:shadow-xl inline-flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff6b35] focus-visible:ring-offset-2"
+                  >
+                    Wyznacz trasę
+                    <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+                  </a>
+                </div>
+              </div>
+            )}
           </motion.div>
         </div>
 

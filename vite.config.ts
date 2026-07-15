@@ -31,6 +31,17 @@ export default defineConfig({
     },
   },
 
+  build: {
+    rollupOptions: {
+      input: {
+        // Strona główna
+        main: path.resolve(__dirname, 'index.html'),
+        // Polityka prywatności — osobna, prawdziwa strona HTML pod /polityka-prywatnosci/
+        privacy: path.resolve(__dirname, 'polityka-prywatnosci/index.html'),
+      },
+    },
+  },
+
   // File types to support raw imports. Never add .css, .tsx, or .ts files to this.
   assetsInclude: ['**/*.svg', '**/*.csv'],
 })

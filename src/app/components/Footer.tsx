@@ -9,7 +9,12 @@ const footerLinks = [
   { name: "Kontakt", href: "#kontakt" },
 ];
 
-export function Footer() {
+/**
+ * `linkBase` pozwala użyć tej samej stopki na podstronie (np. Polityce
+ * prywatności), gdzie kotwice muszą prowadzić z powrotem na stronę główną.
+ * Domyślnie "" → na stronie głównej linki działają dokładnie jak dotąd.
+ */
+export function Footer({ linkBase = "" }: { linkBase?: string }) {
   return (
     <footer className="bg-[#2d2d2d] text-white py-16">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -44,7 +49,7 @@ export function Footer() {
               {footerLinks.map((item) => (
                 <li key={item.name}>
                   <motion.a
-                    href={item.href}
+                    href={`${linkBase}${item.href}`}
                     whileHover={{ x: 5 }}
                     className="text-gray-400 hover:text-[#ff6b35] transition-colors inline-block"
                   >
@@ -85,9 +90,17 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm text-center md:text-left">
-              © 2026 Pepperoni. Wszystkie prawa zastrzeżone.
-            </p>
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-5">
+              <p className="text-gray-400 text-sm text-center md:text-left">
+                © 2026 Pepperoni. Wszystkie prawa zastrzeżone.
+              </p>
+              <a
+                href="/polityka-prywatnosci/"
+                className="text-gray-400 hover:text-[#ff6b35] text-sm transition-colors underline underline-offset-4 decoration-gray-600 hover:decoration-[#ff6b35] rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ff6b35] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2d2d2d]"
+              >
+                Polityka prywatności
+              </a>
+            </div>
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-2 text-gray-400 text-sm"

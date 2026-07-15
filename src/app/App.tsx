@@ -9,6 +9,7 @@ import { Testimonials } from "./components/Testimonials";
 import { Location } from "./components/Location";
 import { Footer } from "./components/Footer";
 import { BackToTop } from "./components/BackToTop";
+import { CookieBanner } from "./components/CookieBanner";
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
       </main>
       <Footer />
       <BackToTop />
+      <CookieBanner />
     </div>
   );
 }
